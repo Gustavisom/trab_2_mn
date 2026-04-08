@@ -9,7 +9,7 @@ def df(x):
 i = 6
 eppara = 0.5 * (10 ** (2 - i))
 
-x = np.linspace(0.01, 2*np.pi, 1000)
+x = np.linspace(0, 2*np.pi, 1000)
 intervalos = []
 
 for i in range(len(x)-1):
@@ -20,7 +20,7 @@ print(f"Intervalos encontrados: {len(intervalos)}\n")
 
 for idx, (xl, xu) in enumerate(intervalos):
     epest = 100
-    x = (xl + xu) / 2  # chute inicial no meio do intervalo
+    x = (xl + xu) / 2  
     iteracoes = 0
 
     while epest >= eppara:
