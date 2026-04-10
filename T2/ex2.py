@@ -73,27 +73,23 @@ for xi_1, xi, label in casos:
     resultados.append((label, xi_1, xi, res))
 
 # ── d) Método Gráfico ──────────────────────────────────────────────────────────
-fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-fig.suptitle("Exercício 2 — f(x) = sin(x) + cos(1 + x²) − 1", fontsize=13, fontweight='bold')
+cores  = ['tomato', 'limegreen', 'darkorange']
+marcas = ['o', 's', '^']
 
-# --- Gráfico esquerdo: função no intervalo amplo ---
-ax = axes[0]
+# --- Figura 1: visão geral ---
+fig1, ax = plt.subplots(figsize=(8, 5))
+fig1.suptitle("Exercício 2 — f(x) = sin(x) + cos(1 + x²) − 1", fontsize=13, fontweight='bold')
+
 x_vals = np.linspace(0.01, 10, 2000)
-y_vals = f(x_vals)
-
 ax.axhline(0, color='black', linewidth=0.8, linestyle='--')
-ax.plot(x_vals, y_vals, color='steelblue', linewidth=1.8, label='f(x)')
+ax.plot(x_vals, f(x_vals), color='steelblue', linewidth=1.8, label='f(x)')
 ax.set_xlim(0.01, 10)
 ax.set_ylim(-3, 3)
 ax.set_xlabel('x', fontsize=11)
 ax.set_ylabel('f(x)', fontsize=11)
 ax.set_title('Visão geral — raízes no intervalo (0, 10]', fontsize=10)
-ax.legend()
 ax.grid(True, alpha=0.3)
 
-# Marca raízes encontradas com convergência
-cores  = ['tomato', 'limegreen', 'darkorange']
-marcas = ['o', 's', '^']
 for idx, (label, _, _, res) in enumerate(resultados):
     if res is not None:
         raiz = res[0]
@@ -101,16 +97,19 @@ for idx, (label, _, _, res) in enumerate(resultados):
                 markersize=9, label=f'{label[:2]} raiz={raiz:.4f}', zorder=5)
 ax.legend(fontsize=8)
 
-# --- Gráfico direito: zoom na região da 1ª raiz positiva ---
-ax2 = axes[1]
+plt.tight_layout()
+plt.savefig('ex2_grafico1_visao_geral.png', dpi=150, bbox_inches='tight')
+plt.close()
+print("\n✔ Gráfico 1 salvo: ex2_grafico1_visao_geral.png")
+
+# --- Figura 2: zoom na região da 1ª raiz positiva ---
+fig2, ax2 = plt.subplots(figsize=(8, 5))
+fig2.suptitle("Exercício 2 — f(x) = sin(x) + cos(1 + x²) − 1", fontsize=13, fontweight='bold')
+
 x_zoom = np.linspace(0.5, 4.5, 2000)
-y_zoom = f(x_zoom)
-
 ax2.axhline(0, color='black', linewidth=0.8, linestyle='--')
-ax2.plot(x_zoom, y_zoom, color='steelblue', linewidth=1.8, label='f(x)')
+ax2.plot(x_zoom, f(x_zoom), color='steelblue', linewidth=1.8, label='f(x)')
 
-# Pontos iniciais de cada caso
-estilos_ci = [('tomato', 'o', '^'), ('limegreen', 's', 'D'), ('darkorange', '^', 'v')]
 for idx, (label, xi_1_val, xi_val, res) in enumerate(resultados):
     c = cores[idx]
     ax2.plot(xi_1_val, f(xi_1_val), 'x', color=c, markersize=10, markeredgewidth=2,
@@ -131,6 +130,6 @@ ax2.legend(fontsize=7, ncol=2)
 ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('ex2_grafico.png', dpi=150, bbox_inches='tight')
-plt.show()
-print("\n✔ Gráfico salvo em ex2_grafico.png (mesma pasta do script)")
+plt.savefig('ex2_grafico2_zoom.png', dpi=150, bbox_inches='tight')
+plt.close()
+print("✔ Gráfico 2 salvo: ex2_grafico2_zoom.png")
