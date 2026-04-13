@@ -35,8 +35,8 @@ x_plot = np.linspace(0.01, 10, 1000)
 cores = {'a': 'tomato', 'b': 'steelblue', 'c': 'seagreen'}
 
 plt.figure(figsize=(10, 5))
-plt.plot(x_plot, f(x_plot), color='black', lw=1.5, label=r'$f(x) = \sin(x) + \cos(1+x^2) - 1$')
-plt.axhline(0, color='gray', lw=0.8, ls='--')
+plt.plot(x_plot, f(x_plot), color='blue', lw=1.5, label=r'$f(x) = \sin(x) + \cos(1+x^2) - 1$')
+plt.axhline(0, color='red', lw=0.8, ls='--')
 
 for label, raiz in raiz_casos.items():
     plt.axvline(raiz, color=cores[label], lw=0.8, ls=':')
@@ -56,8 +56,8 @@ plt.show()
 x_zoom = np.linspace(0.5, 4.5, 1000)
 
 plt.figure(figsize=(10, 5))
-plt.plot(x_zoom, f(x_zoom), color='black', lw=1.5, label=r'$f(x) = \sin(x) + \cos(1+x^2) - 1$')
-plt.axhline(0, color='gray', lw=0.8, ls='--')
+plt.plot(x_zoom, f(x_zoom), color='blue', lw=1.5, label=r'$f(x) = \sin(x) + \cos(1+x^2) - 1$')
+plt.axhline(0, color='red', lw=0.8, ls='--')
 
 for label, raiz in raiz_casos.items():
     plt.axvline(raiz, color=cores[label], lw=0.8, ls=':')
