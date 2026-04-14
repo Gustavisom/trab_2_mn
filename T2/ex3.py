@@ -1,13 +1,13 @@
 import numpy as np
 
 # Dados
-rho = 1.23        # kg/m³
-mu = 1.79e-5      # N·s/m²
-D = 0.005         # m
-V = 40            # m/s
-L = 0.2           # m
-eps_a = 0.0015e-3 # m (tubo liso, 0.0015 mm)
-eps_b = 0.045e-3  # m (aço comercial, 0.045 mm)
+rho = 1.23        
+mu = 1.79e-5      
+D = 0.005         
+V = 40            
+L = 0.2           
+eps_a = 0.0015e-3 
+eps_b = 0.045e-3  
 
 i = 6
 eppara = 0.5 * (10 ** (2 - i))
