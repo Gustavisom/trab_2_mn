@@ -21,7 +21,7 @@ for i in range(len(y)-1):
         
 plt.figure(figsize=(10, 5))
 plt.plot(x, y, label=r'$f(x) = \sin(4x) + \cos(5x) + \frac{1}{x}$', color='blue')
-plt.axhline(0, color='red', lw=0.8, ls='--', label=r'$f(x) = 0$')
+plt.axhline(0, color='red', lw=0.8, ls='--')
 
 plt.title(r'$ f(x) = \sin(4x) + \cos(5x) + \frac{1}{x}$ ', fontsize=14)
 plt.xlabel(r'$x$')
